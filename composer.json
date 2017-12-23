@@ -1,0 +1,14 @@
+{
+    "name": "trendsoft/themes",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jabber",
+            "email": "2898117012@qq.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    }
+}
