@@ -45,10 +45,12 @@ class Theme
     public function loadThemes($path)
     {
         $this->themes = [];
-        $dirs         = scandir($path);
-        foreach ( $dirs as $file ) {
+
+        $dirs = scandir($path);
+        foreach ($dirs as $file) {
             if (is_dir($path.'/'.$file) && file_exists($path.'/'.$file.'/theme.json')) {
-                $theme                        = json_decode(file_get_contents($path.'/'.$file.'/theme.json'), true);
+                $theme = json_decode(file_get_contents($path.'/'.$file.'/theme.json'), true);
+                
                 $this->themes[$theme['slug']] = $theme;
             }
         }
@@ -168,10 +170,10 @@ class Theme
      */
     protected function parseConfig($config)
     {
-        if (key_exists('paths', $config) && key_exists('absolute', $config['paths'])) {
+        if (array_key_exists('paths', $config) && array_key_exists('absolute', $config['paths'])) {
             $this->loadThemes($config['paths']['absolute']);
         }
-        if (key_exists('active', $config)) {
+        if (array_key_exists('active', $config)) {
             $this->setCurrent($config['active']);
         }
     }
