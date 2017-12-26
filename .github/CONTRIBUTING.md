@@ -50,4 +50,4 @@ $ git push origin new_feature
 
 # 报告 Bug
 
-当你在使用过程中遇到问题，请查阅 疑难解答 或者在这里提问 GitHub. 如果还是不能解决你的问题，请到 GitHub 联系我们。
+当你在使用过程中遇到问题，请在这里提问 GitHub. 如果还是不能解决你的问题，请到 GitHub 联系我们。
