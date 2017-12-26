@@ -3,11 +3,27 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use Themes\Theme;
 
 class ThemeTest extends TestCase
 {
-    public function testSetTheme()
+    /**
+     * @dataProvider configProvider
+     */
+    public function testSetTheme( $config )
     {
-        $this->assertTrue( true );
+        $theme = new Theme( $config );
+        $theme->setCurrent( 'default' );
+        $this->assertEquals( 'default', $theme->getCurrent() );
+    }
+
+    /**
+     * @dataProvider configProvider
+     */
+    public function testActiveTheme( $config )
+    {
+        $theme = new Theme( $config );
+        $theme->active( 'default' );
+        $this->assertEquals( 'default', $theme->getCurrent() );
     }
 }
