@@ -82,7 +82,7 @@ class ThemeTest extends TestCase
      */
     public function testSetConfig($config)
     {
-        $theme = new Theme($config);
+        $theme            = new Theme($config);
         $config['active'] = 'vue';
         $theme->setConfig($config);
         $this->assertSame('vue', $theme->getCurrent());
