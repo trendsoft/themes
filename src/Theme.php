@@ -23,7 +23,7 @@ class Theme
     public function __construct($config = [])
     {
         $this->config = $config;
-        $this->parseConfig( $config );
+        $this->parseConfig($config);
     }
 
     /**
@@ -34,7 +34,7 @@ class Theme
     public function setConfig($config)
     {
         $this->config = $config;
-        $this->parseConfig( $config );
+        $this->parseConfig($config);
     }
 
     /**
@@ -45,10 +45,10 @@ class Theme
     public function loadThemes($path)
     {
         $this->themes = [];
-        $dirs         = scandir( $path );
+        $dirs         = scandir($path);
         foreach ( $dirs as $file ) {
-            if ( is_dir( $path.'/'.$file ) && file_exists( $path.'/'.$file.'/theme.json' ) ) {
-                $theme                          = json_decode( file_get_contents( $path.'/'.$file.'/theme.json' ), true );
+            if ( is_dir($path.'/'.$file) && file_exists($path.'/'.$file.'/theme.json') ) {
+                $theme                          = json_decode(file_get_contents($path.'/'.$file.'/theme.json'), true);
                 $this->themes[ $theme['slug'] ] = $theme;
             }
         }
@@ -101,7 +101,7 @@ class Theme
      */
     public function active($theme = '')
     {
-        $this->setCurrent( $theme );
+        $this->setCurrent($theme);
     }
 
     /**
@@ -113,7 +113,7 @@ class Theme
      */
     public function asset($asset)
     {
-        return $this->path( "assets/$asset" );
+        return $this->path("assets/$asset");
     }
 
     /**
@@ -137,7 +137,7 @@ class Theme
      */
     public function absolutePath($theme = null)
     {
-        if ( is_null( $theme ) ) {
+        if ( is_null($theme) ) {
             $theme = $this->getCurrent();
         }
 
@@ -154,7 +154,7 @@ class Theme
      */
     public function path($file, $theme = null)
     {
-        if ( is_null( $theme ) ) {
+        if ( is_null($theme) ) {
             $theme = $this->getCurrent();
         }
 
@@ -168,11 +168,11 @@ class Theme
      */
     protected function parseConfig($config)
     {
-        if ( key_exists( 'paths', $config ) && key_exists( 'absolute', $config['paths'] ) ) {
-            $this->loadThemes( $config['paths']['absolute'] );
+        if ( key_exists('paths', $config) && key_exists('absolute', $config['paths']) ) {
+            $this->loadThemes($config['paths']['absolute']);
         }
-        if ( key_exists( 'active', $config ) ) {
-            $this->setCurrent( $config['active'] );
+        if ( key_exists('active', $config) ) {
+            $this->setCurrent($config['active']);
         }
     }
 }
