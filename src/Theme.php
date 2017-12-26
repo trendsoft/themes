@@ -20,10 +20,10 @@ class Theme
      *
      * @param array $config
      */
-    public function __construct($config = [])
+    public function __construct( $config = [] )
     {
         $this->config = $config;
-        $this->parseConfig($config);
+        $this->parseConfig( $config );
     }
 
     /**
@@ -31,10 +31,10 @@ class Theme
      *
      * @param $config
      */
-    public function setConfig($config)
+    public function setConfig( $config )
     {
         $this->config = $config;
-        $this->parseConfig($config);
+        $this->parseConfig( $config );
     }
 
     /**
@@ -42,14 +42,14 @@ class Theme
      *
      * @param $path
      */
-    public function loadThemes($path)
+    public function loadThemes( $path )
     {
         $this->themes = [];
-        $dirs = scandir($path);
-        foreach ($dirs as $file) {
-            if (is_dir($path.'/'.$file) && file_exists($path.'/'.$file.'/theme.json')) {
-                $theme = json_decode(file_get_contents($path.'/'.$file.'/theme.json'), true);
-                $this->themes[$theme['slug']] = $theme;
+        $dirs         = scandir( $path );
+        foreach ( $dirs as $file ) {
+            if ( is_dir( $path . '/' . $file ) && file_exists( $path . '/' . $file . '/theme.json' ) ) {
+                $theme                          = json_decode( file_get_contents( $path . '/' . $file . '/theme.json' ), true );
+                $this->themes[ $theme['slug'] ] = $theme;
             }
         }
     }
@@ -81,7 +81,7 @@ class Theme
      */
     public function getCurrentTheme()
     {
-        return $this->themes[$this->current];
+        return $this->themes[ $this->current ];
     }
 
     /**
@@ -89,7 +89,7 @@ class Theme
      *
      * @param string $theme
      */
-    public function setCurrent($theme)
+    public function setCurrent( $theme )
     {
         $this->current = $theme;
     }
@@ -99,9 +99,9 @@ class Theme
      *
      * @param string $theme
      */
-    public function active($theme = '')
+    public function active( $theme = '' )
     {
-        $this->setCurrent($theme);
+        $this->setCurrent( $theme );
     }
 
     /**
@@ -111,9 +111,9 @@ class Theme
      *
      * @return string
      */
-    public function asset($asset)
+    public function asset( $asset )
     {
-        return $this->path("assets/$asset");
+        return $this->path( "assets/$asset" );
     }
 
     /**
@@ -123,7 +123,7 @@ class Theme
      *
      * @return bool
      */
-    public function isCurrent($theme)
+    public function isCurrent( $theme )
     {
         return $theme === $this->current;
     }
@@ -135,13 +135,13 @@ class Theme
      *
      * @return string
      */
-    public function absolutePath($theme = null)
+    public function absolutePath( $theme = null )
     {
-        if (is_null($theme)) {
+        if ( is_null( $theme ) ) {
             $theme = $this->getCurrent();
         }
 
-        return $this->config['paths']['absolute'].'/'.$theme;
+        return $this->config['paths']['absolute'] . '/' . $theme;
     }
 
     /**
@@ -152,13 +152,13 @@ class Theme
      *
      * @return string
      */
-    public function path($file, $theme = null)
+    public function path( $file, $theme = null )
     {
-        if (is_null($theme)) {
+        if ( is_null( $theme ) ) {
             $theme = $this->getCurrent();
         }
 
-        return $this->config['paths']['base']."/$theme/$file";
+        return $this->config['paths']['base'] . "/$theme/$file";
     }
 
     /**
@@ -166,13 +166,13 @@ class Theme
      *
      * @param $config
      */
-    protected function parseConfig($config): void
+    protected function parseConfig( $config )
     {
-        if (key_exists('paths', $config) && key_exists('absolute', $config['paths'])) {
-            $this->loadThemes($config['paths']['absolute']);
+        if ( key_exists( 'paths', $config ) && key_exists( 'absolute', $config['paths'] ) ) {
+            $this->loadThemes( $config['paths']['absolute'] );
         }
-        if (key_exists('active', $config)) {
-            $this->setCurrent($config['active']);
+        if ( key_exists( 'active', $config ) ) {
+            $this->setCurrent( $config['active'] );
         }
     }
 }
