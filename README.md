@@ -2,6 +2,8 @@
 
 > 主题管理，读取指定目录下的主题目录，并通过简单的方式获取对应主题的资源文件。
 
+[![Build Status](https://travis-ci.org/trendsoft/themes.svg?branch=master)](https://travis-ci.org/trendsoft/themes)
+[![StyleCI](https://styleci.io/repos/115180981/shield?branch=master)](https://styleci.io/repos/115180981)
 
 # 要求
 
