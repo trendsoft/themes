@@ -50,7 +50,6 @@ class Theme
         foreach ($dirs as $file) {
             if (is_dir($path.'/'.$file) && file_exists($path.'/'.$file.'/theme.json')) {
                 $theme = json_decode(file_get_contents($path.'/'.$file.'/theme.json'), true);
-                
                 $this->themes[$theme['slug']] = $theme;
             }
         }
