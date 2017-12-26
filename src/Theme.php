@@ -12,7 +12,9 @@ namespace Themes;
 class Theme
 {
     protected $config;
+
     protected $current;
+
     protected $themes = [];
 
     /**
