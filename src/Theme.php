@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of the trendsoft/themes.
+ * (c) jabber <2898117012@qq.com>
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Themes;
 
 class Theme
@@ -13,21 +20,21 @@ class Theme
      *
      * @param array $config
      */
-    public function __construct( $config = [] )
+    public function __construct($config = [])
     {
         $this->config = $config;
-        $this->parseConfig( $config );
+        $this->parseConfig($config);
     }
 
     /**
-     * Set Config
+     * Set Config.
      *
      * @param $config
      */
-    public function setConfig( $config )
+    public function setConfig($config)
     {
         $this->config = $config;
-        $this->parseConfig( $config );
+        $this->parseConfig($config);
     }
 
     /**
@@ -35,14 +42,14 @@ class Theme
      *
      * @param $path
      */
-    public function loadThemes( $path )
+    public function loadThemes($path)
     {
         $this->themes = [];
-        $dirs         = scandir( $path );
-        foreach ( $dirs as $file ) {
-            if ( is_dir( $path . '/' . $file ) && file_exists( $path . '/' . $file . '/theme.json' ) ) {
-                $theme                          = json_decode( file_get_contents( $path . '/' . $file . '/theme.json' ), true );
-                $this->themes[ $theme['slug'] ] = $theme;
+        $dirs = scandir($path);
+        foreach ($dirs as $file) {
+            if (is_dir($path.'/'.$file) && file_exists($path.'/'.$file.'/theme.json')) {
+                $theme = json_decode(file_get_contents($path.'/'.$file.'/theme.json'), true);
+                $this->themes[$theme['slug']] = $theme;
             }
         }
     }
@@ -58,7 +65,7 @@ class Theme
     }
 
     /**
-     * Get Current Theme slug
+     * Get Current Theme slug.
      *
      * @return mixed
      */
@@ -68,104 +75,104 @@ class Theme
     }
 
     /**
-     * Get Current Theme
+     * Get Current Theme.
      *
      * @return mixed
      */
     public function getCurrentTheme()
     {
-        return $this->themes[ $this->current ];
+        return $this->themes[$this->current];
     }
 
     /**
-     * Set Current Theme
+     * Set Current Theme.
      *
      * @param string $theme
      */
-    public function setCurrent( $theme )
+    public function setCurrent($theme)
     {
         $this->current = $theme;
     }
 
     /**
-     * Active Theme
+     * Active Theme.
      *
      * @param string $theme
      */
-    public function active( $theme = '' )
+    public function active($theme = '')
     {
-        $this->setCurrent( $theme );
+        $this->setCurrent($theme);
     }
 
     /**
-     * Get Theme Relative Asset
+     * Get Theme Relative Asset.
      *
      * @param string $asset
      *
      * @return string
      */
-    public function asset( $asset )
+    public function asset($asset)
     {
-        return $this->path( "assets/$asset" );
+        return $this->path("assets/$asset");
     }
 
     /**
-     * Theme Is Current
+     * Theme Is Current.
      *
      * @param string $theme
      *
      * @return bool
      */
-    public function isCurrent( $theme )
+    public function isCurrent($theme)
     {
         return $theme === $this->current;
     }
 
     /**
-     * Get Theme Absolute Path
+     * Get Theme Absolute Path.
      *
      * @param string $theme
      *
      * @return string
      */
-    public function absolutePath( $theme = null )
+    public function absolutePath($theme = null)
     {
-        if ( is_null( $theme ) ) {
+        if (is_null($theme)) {
             $theme = $this->getCurrent();
         }
 
-        return $this->config['paths']['absolute'] . '/' . $theme;
+        return $this->config['paths']['absolute'].'/'.$theme;
     }
 
     /**
-     * Get Theme File Path
+     * Get Theme File Path.
      *
      * @param string $file
      * @param string $theme
      *
      * @return string
      */
-    public function path( $file, $theme = null )
+    public function path($file, $theme = null)
     {
-        if ( is_null( $theme ) ) {
+        if (is_null($theme)) {
             $theme = $this->getCurrent();
         }
 
-        return $this->config['paths']['base'] . "/$theme/$file";
+        return $this->config['paths']['base']."/$theme/$file";
     }
 
     /**
-     * Parse Config to Object
+     * Parse Config to Object.
      *
      * @param $config
      */
-    protected function parseConfig( $config ): void
+    protected function parseConfig($config): void
     {
-        if ( key_exists( 'paths', $config ) && key_exists( 'absolute', $config['paths'] ) ) {
-            $this->loadThemes( $config['paths']['absolute'] );
+        if (key_exists('paths', $config) && key_exists('absolute', $config['paths'])) {
+            $this->loadThemes($config['paths']['absolute']);
         }
-        if ( key_exists( 'active', $config ) ) {
-            $this->setCurrent( $config['active'] );
+        if (key_exists('active', $config)) {
+            $this->setCurrent($config['active']);
         }
     }
 }
