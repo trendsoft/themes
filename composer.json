@@ -1,8 +1,11 @@
 {
   "name": "trendsoft/themes",
   "license": "MIT",
-  "keywords": [],
-  "description": "",
+  "keywords": [
+    "theme",
+    "php"
+  ],
+  "description": "多主题管理",
   "homepage": "http://www.trendsoft.org",
   "authors": [
     {
