@@ -24,7 +24,7 @@ class TestCase extends BaseTestCase
             [
                 [
                     'active' => 'default',
-                    'paths'  => ['absolute' => $this->getAbsolute(), 'base' => 'themes', 'assets' => 'assets'],
+                    'paths' => ['absolute' => $this->getAbsolute(), 'base' => 'themes', 'assets' => 'assets'],
                 ],
             ],
         ];
