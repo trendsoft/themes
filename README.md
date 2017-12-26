@@ -1,11 +1,63 @@
 # Themes
 
-## Todos
+> 主题管理，读取指定目录下的主题目录，并通过简单的方式获取对应主题的资源文件。
 
-- [ ] get all themes in themes catalog.
-- [ ] get current theme in config file.
-- [ ] set current theme.
-- [ ] get dynamic set theme.
-- [ ] get current theme info.
-- [ ] get theme assets.
-- [ ] add theme.
+
+# 要求
+
+- PHP >= 7.0
+- Composer
+
+# 安装
+```
+$ composer require "trendsoft/themes" -vvv
+```
+
+# 使用示例
+```php
+$theme = new Theme($config);
+$theme->asset('app.js'); //获取资源
+$theme->all(); //获取所有主题列表
+$theme->path('assets/app.css'); //获取主题目录assets目录下的app.css文件
+```
+## 配置文件
+```php
+return array('active' => 'default', 'paths'  => [ 'absolute' => $this->getAbsolute(), 'base' => 'themes', 'assets' => 'assets' ]);
+```
+
+- active:
+- paths:
+  - absolute:
+  - base:
+  - assets:
+  
+## 创建主题
+
+在absolute对应的目录中创建一个以主题slug命名的目录，并在此目录中创建theme.json文件，theme.json文件格式如下：
+
+```json
+{
+  "slug": "bootstrap",
+  "name": "Bootstrap",
+  "author": "Jabber",
+  "description": "is a bootstrap theme",
+  "version": "0.1.0"
+}
+```
+
+## 主题列表
+
+```php
+$theme->all();
+```
+## 应用主题
+
+```php
+$theme->active('vue'); //or $theme->setCurrent('vue');
+```
+
+# Contribution
+[Contribution Guide](.github/CONTRIBUTING.md)
+
+# License
+MIT
