@@ -25,11 +25,11 @@ $theme->path('assets/app.css'); //获取主题目录assets目录下的app.css文
 return array('active' => 'default', 'paths'  => [ 'absolute' => $this->getAbsolute(), 'base' => 'themes', 'assets' => 'assets' ]);
 ```
 
-- active:
+- active:默认使用的主题slug
 - paths:
-  - absolute:
-  - base:
-  - assets:
+  - absolute:绝对路径
+  - base:主题目录uri相对路径
+  - assets:资源目录
   
 ## 创建主题
 
