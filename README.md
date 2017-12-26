@@ -1,9 +1,18 @@
 # Themes
 
-> 主题管理，读取指定目录下的主题目录，并通过简单的方式获取对应主题的资源文件。
+> 主题管理,读取指定目录下的主题目录,并通过简单的方式获取对应主题的资源文件.
 
 [![Build Status](https://travis-ci.org/trendsoft/themes.svg?branch=master)](https://travis-ci.org/trendsoft/themes)
+[![Latest Stable Version](https://poser.pugx.org/trendsoft/themes/v/stable)](https://packagist.org/packages/trendsoft/themes)
+[![Latest Unstable Version](https://poser.pugx.org/trendsoft/themes/v/unstable)](https://packagist.org/packages/trendsoft/themes)
 [![StyleCI](https://styleci.io/repos/115180981/shield?branch=master)](https://styleci.io/repos/115180981)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/trendsoft/themes/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/trendsoft/themes/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/trendsoft/themes/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/trendsoft/themes/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/trendsoft/themes/badges/build.png?b=master)](https://scrutinizer-ci.com/g/trendsoft/themes/build-status/master)
+[![License](https://poser.pugx.org/trendsoft/themes/license)](https://packagist.org/packages/trendsoft/themes)
+[![Total Downloads](https://poser.pugx.org/trendsoft/themes/downloads)](https://packagist.org/packages/trendsoft/themes)
+[![Monthly Downloads](https://poser.pugx.org/trendsoft/themes/d/monthly)](https://packagist.org/packages/trendsoft/themes)
+[![Daily Downloads](https://poser.pugx.org/trendsoft/themes/d/daily)](https://packagist.org/packages/trendsoft/themes)
 
 # 要求
 
