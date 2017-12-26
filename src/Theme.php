@@ -47,9 +47,9 @@ class Theme
         $this->themes = [];
         $dirs         = scandir($path);
         foreach ( $dirs as $file ) {
-            if ( is_dir($path.'/'.$file) && file_exists($path.'/'.$file.'/theme.json') ) {
-                $theme                          = json_decode(file_get_contents($path.'/'.$file.'/theme.json'), true);
-                $this->themes[ $theme['slug'] ] = $theme;
+            if (is_dir($path.'/'.$file) && file_exists($path.'/'.$file.'/theme.json')) {
+                $theme                        = json_decode(file_get_contents($path.'/'.$file.'/theme.json'), true);
+                $this->themes[$theme['slug']] = $theme;
             }
         }
     }
@@ -81,7 +81,7 @@ class Theme
      */
     public function getCurrentTheme()
     {
-        return $this->themes[ $this->current ];
+        return $this->themes[$this->current];
     }
 
     /**
@@ -137,7 +137,7 @@ class Theme
      */
     public function absolutePath($theme = null)
     {
-        if ( is_null($theme) ) {
+        if (is_null($theme)) {
             $theme = $this->getCurrent();
         }
 
@@ -154,7 +154,7 @@ class Theme
      */
     public function path($file, $theme = null)
     {
-        if ( is_null($theme) ) {
+        if (is_null($theme)) {
             $theme = $this->getCurrent();
         }
 
@@ -168,10 +168,10 @@ class Theme
      */
     protected function parseConfig($config)
     {
-        if ( key_exists('paths', $config) && key_exists('absolute', $config['paths']) ) {
+        if (key_exists('paths', $config) && key_exists('absolute', $config['paths'])) {
             $this->loadThemes($config['paths']['absolute']);
         }
-        if ( key_exists('active', $config) ) {
+        if (key_exists('active', $config)) {
             $this->setCurrent($config['active']);
         }
     }
